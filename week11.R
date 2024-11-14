@@ -18,5 +18,10 @@ y <- qnorm(x, mean = 2, sd = 1)  # Calculate the normal distribution with mean =
 
 png(file = "qnorm.png")            # Open a PNG device to save the plot
 plot(x, y)                         # Plot the values of x and y
-dev.off()                          # Close the PNG device
+dev.off()          
 
+# Close the PNG device
+y<-rnorm(50)
+png(file="rnorm.png")
+hist(y,main="Normal Distribution")
+dev.off()
