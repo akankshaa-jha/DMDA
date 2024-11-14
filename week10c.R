@@ -13,3 +13,60 @@ pred<-predict.C5.0(model,testing[,-5])
 a<- table(testing$Species,pred)
 sum(diag(a))/sum(a)
 plot(model)
+
+
+
+
+Call:
+C5.0.formula(formula = Species ~ ., data = training)
+
+
+C5.0 [Release 2.07 GPL Edition]  	Thu Nov 14 10:38:23 2024
+-------------------------------
+
+Class specified by attribute `outcome'
+
+Read 105 cases (5 attributes) from undefined.data
+
+Decision tree:
+
+Petal.Length <= 1.9: setosa (35)
+Petal.Length > 1.9:
+:...Petal.Width > 1.7: virginica (33/1)
+    Petal.Width <= 1.7:
+    :...Petal.Length <= 4.9: versicolor (32)
+        Petal.Length > 4.9:
+        :...Petal.Width <= 1.5: virginica (3)
+            Petal.Width > 1.5: versicolor (2)
+
+
+Evaluation on training data (105 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	     5    1( 1.0%)   <<
+
+
+	   (a)   (b)   (c)    <-classified as
+	  ----  ----  ----
+	    35                (a): class setosa
+	          34     1    (b): class versicolor
+	                35    (c): class virginica
+
+
+	Attribute usage:
+
+	100.00%	Petal.Length
+	 66.67%	Petal.Width
+
+
+Time: 0.0 secs
+
+> pred<-predict.C5.0(model,testing[,-5])
+> a<- table(testing$Species,pred)
+> sum(diag(a))/sum(a)
+[1] 0.9555556
+> plot(model)
+> 
